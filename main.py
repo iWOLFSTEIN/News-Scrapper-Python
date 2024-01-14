@@ -1,3 +1,3 @@
-from spiders.fox_news_spider import FoxNewsSpider
+from spiders.life_hacker import LifeHackerSpider
 
-fns = FoxNewsSpider()
+fns = LifeHackerSpider()
