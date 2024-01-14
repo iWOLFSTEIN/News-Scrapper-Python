@@ -1,11 +1,10 @@
-class News:
-    def __init__(self,id, title, description, publish_date, cover_image, link):
-        self.id = id
-        self.title = title
-        self.description = description
-        self.publish_date = publish_date
-        self.cover_image = cover_image
-        self.link = link
+from datetime import datetime
+from pydantic import BaseModel
 
-    def __str__(self):
-        return f"Id: {self.id}\nTitle: {self.title}\nDescription: {self.description}\nPublish Date: {self.publish_date}\nCover Image: {self.cover_image}\nLink: {self.link}"
+class News(BaseModel):
+    id: str
+    title: str
+    description: str
+    publish_date: datetime
+    cover_image: str
+    link: str

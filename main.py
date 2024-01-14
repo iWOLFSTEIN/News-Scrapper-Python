@@ -1,3 +1,3 @@
 from spiders.life_hacker import LifeHackerSpider
 
-fns = LifeHackerSpider()
+lhs = LifeHackerSpider()

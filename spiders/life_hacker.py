@@ -22,5 +22,3 @@ class LifeHackerSpider:
             news = News(id=id, title=title, description=description, publish_date=publish_date, cover_image=cover_image, link=link)
             scrapped.append(news)
             print(news.__str__())
-            
-            break
