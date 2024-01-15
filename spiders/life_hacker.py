@@ -2,7 +2,6 @@ from spiders.spider import Spider
 import feedparser
 from dateutil import parser
 from models.news import News
-from utils.scrapped_news import scrapped
 
 
 class LifeHackerSpider(Spider):
@@ -24,5 +23,6 @@ class LifeHackerSpider(Spider):
                 cover_image=cover_image,
                 link=link,
             )
-            scrapped.append(news)
-            print(id)
+            self.store_in_db(news=news)
+            print(news.id)
+            break

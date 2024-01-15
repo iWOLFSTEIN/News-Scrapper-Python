@@ -11,5 +11,5 @@ class MongoDBClient:
         result = await collection.insert_one(document)
         return result.inserted_id
 
-    def __del__(self):
+    def close(self):
         self.client.close()
