@@ -1,9 +1,10 @@
 import yaml
 import time
-
+from box import Box
 
 class Spider:
     def __init__(self) -> None:
+        self.config = Box(yaml.safe_load(open("config.yaml")))
         self.check_updates()
 
     def parse(self):
@@ -17,8 +18,8 @@ class Spider:
         This function re-run the spider after a specific period of time
         """
 
-        config = yaml.safe_load(open("config.yaml"))
-        sleep_time = config["SPIDER_SLEEP_TIME"]
+        # sleep_time = self.config["spider_sleep_time"]
+        sleep_time = self.config.spider_sleep_time
 
         while True:
             self.parse()
