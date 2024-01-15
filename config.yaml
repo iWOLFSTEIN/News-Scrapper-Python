@@ -1,0 +1,2 @@
+# This is the sleep time for the spider in hours
+SPIDER_SLEEP_TIME: 6 
