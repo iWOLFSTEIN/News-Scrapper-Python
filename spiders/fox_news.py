@@ -1,5 +1,5 @@
-from utils.feed_sites import FOX_SPORTS_ALL_HEADLINES
 import feedparser
+from utils.constants import config
 
 
 class FoxNewsSpider:
@@ -7,7 +7,7 @@ class FoxNewsSpider:
         self.parse_and_notify()
 
     def parse_and_notify(self):
-        feed = feedparser.parse(FOX_SPORTS_ALL_HEADLINES)
+        feed = feedparser.parse(config.feed_urls.fox_news)
         for entry in feed.entries:
             print(entry)
             break

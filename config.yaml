@@ -5,3 +5,10 @@ spider_sleep_time: 6
 feed_urls:
   fox_news: https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30
   life_hacker: https://lifehacker.com/feed/rss
+
+# This is the uri of a local mongodb client
+mongodb:
+  uri: mongodb://localhost:27017/
+  name: news_scrapper
+  collections:
+    - scrapped_news
