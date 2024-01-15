@@ -16,7 +16,7 @@ class LifeHackerSpider(Spider):
             link = entry.link
 
             news = News(
-                id=id,
+                article_id=id,
                 title=title,
                 description=description,
                 publish_date=publish_date,
