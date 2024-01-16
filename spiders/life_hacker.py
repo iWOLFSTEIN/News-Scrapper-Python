@@ -11,11 +11,10 @@ class LifeHackerSpider(Spider):
             max_allowed_to_scrap = self.config.max_scrapped_news
             feed = feedparser.parse(self.config.rss_feeds.life_hacker.url)
             for entry in feed.entries:
-                if max_allowed_to_scrap == self.config.max_scrapped_news:
-                    if not self.is_rss_feed_updated(
-                        self.config.rss_feeds.life_hacker.local_db_key, entry.id
-                    ):
-                        break
+                if not self.is_rss_feed_updated(
+                    self.config.rss_feeds.life_hacker.local_db_key, entry.id
+                ):
+                    break
 
                 news = News(
                     article_id=entry.id,
