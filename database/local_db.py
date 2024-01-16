@@ -9,6 +9,9 @@ class LocalDB:
         if LocalDB.file_handle is None:
             LocalDB.file_handle = open(config.local_db_name, "a+")
 
+        data = LocalDB.retrieve_data(key)
+        if data:
+            return
         LocalDB.file_handle.write(f"{key}: {value}\n")
         LocalDB.file_handle.flush()
 
