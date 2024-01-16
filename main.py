@@ -1,9 +1,15 @@
+import time
 from spiders.fox_news import FoxNewsSpider
 from spiders.life_hacker import LifeHackerSpider
-from database.mongodb_client import MongoDBClient
 from utils.constants import config
 
 
-mongodb = MongoDBClient(config.mongodb.name, config.mongodb.uri)
-# lhs = LifeHackerSpider()
-fns = FoxNewsSpider()
+def main():
+    while True:
+        FoxNewsSpider()
+        LifeHackerSpider()
+        time.sleep(config.spider_sleep_time * 3600)
+
+
+if __name__ == "__main__":
+    main()
