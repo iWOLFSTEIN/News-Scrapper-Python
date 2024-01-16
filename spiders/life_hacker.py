@@ -8,25 +8,28 @@ from models.news import News
 class LifeHackerSpider(Spider):
     def parse(self):
         try:
-            feed = feedparser.parse(self.config.feed_urls.life_hacker)
+            max_allowed_to_scrap = self.config.max_scrapped_news
+            feed = feedparser.parse(self.config.rss_feeds.life_hacker.url)
             for entry in feed.entries:
-                id = entry.id
-                title = entry.title
-                description = entry.description
-                publish_date = parser.parse(entry.published)
-                cover_image = entry.media_thumbnail[0]["url"]
-                link = entry.link
+                if max_allowed_to_scrap == self.config.max_scrapped_news:
+                    if not self.is_rss_feed_updated(
+                        self.config.rss_feeds.life_hacker.local_db_key, entry.id
+                    ):
+                        break
 
                 news = News(
-                    article_id=id,
-                    title=title,
-                    description=description,
-                    publish_date=publish_date,
-                    cover_image=cover_image,
-                    link=link,
+                    article_id=entry.id,
+                    title=entry.title,
+                    description=entry.description,
+                    publish_date=parser.parse(entry.published),
+                    cover_image=entry.media_thumbnail[0]["url"],
+                    link=entry.link,
                 )
+
                 self.store_in_db(news=news)
-                print(news.id)
-                break
+                max_allowed_to_scrap = max_allowed_to_scrap - 1
+                if max_allowed_to_scrap == 0:
+                    break
+
         except Exception as _:
             traceback.print_exc()

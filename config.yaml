@@ -1,10 +1,20 @@
 # This is the sleep time for the spider in hours
-spider_sleep_time: 6 
+spider_sleep_time: 6
 
-# This is the rss feed URLs of all the sites
-feed_urls:
-  fox_news: https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30
-  life_hacker: https://lifehacker.com/feed/rss
+# This is the max items spider can scrap and store to mongodb at a time
+max_scrapped_news: 2
+
+# This is the name of the our own custom local database
+local_db_name: database.db
+
+# This is the rss feeds of all the sites including the URLs and top news id key for local db
+rss_feeds:
+  fox_news: 
+    url: https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30
+    local_db_key: fox_news
+  life_hacker: 
+    url: https://lifehacker.com/feed/rss
+    local_db_key: life_hacker
 
 # This is the uri of a local mongodb client
 mongodb:
