@@ -1,13 +1,19 @@
+import json
 import time
-from spiders.fox_news import FoxNewsSpider
-from spiders.life_hacker import LifeHackerSpider
+
+from box import Box
 from utils.constants import config
+from spiders.spider import Spider
 
 
 def main():
     while True:
-        FoxNewsSpider()
-        LifeHackerSpider()
+        with open("news_sites.json", "r") as file:
+            sites = Box(json.load(file))
+
+        for site in sites.rss_feeds:
+            Spider(site.url, site.local_db_key, site.name)
+
         time.sleep(config.spider_sleep_time * 3600)
 
 

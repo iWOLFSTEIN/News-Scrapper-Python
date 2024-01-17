@@ -1,0 +1,14 @@
+{
+  "rss_feeds": [
+    {
+      "name": "Fox News",
+      "url": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30",
+      "local_db_key": "fox_news"
+    },
+    {
+      "name": "Lifehacker",
+      "url": "https://lifehacker.com/feed/rss",
+      "local_db_key": "life_hacker"
+    }
+  ]
+}
