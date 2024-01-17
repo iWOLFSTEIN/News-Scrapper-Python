@@ -10,7 +10,7 @@ class News(BaseModel):
     title: str
     description: str
     publish_date: datetime
-    cover_image: str
+    cover_image: str | None
     link: str
 
     @validator("id", pre=True, always=True)

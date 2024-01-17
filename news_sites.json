@@ -9,6 +9,26 @@
       "name": "Lifehacker",
       "url": "https://lifehacker.com/feed/rss",
       "local_db_key": "life_hacker"
+    },
+    {
+      "name": "Techcrunch",
+      "url": "https://techcrunch.com/feed/",
+      "local_db_key": "tech_crunch"
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed",
+      "local_db_key": "wired"
+    },
+    {
+      "name": "New York Times",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "local_db_key": "new_york_times"
+    },
+    {
+      "name": "Computerworld",
+      "url": "https://www.computerworld.com/index.rss",
+      "local_db_key": "computer_world"
     }
   ]
 }
